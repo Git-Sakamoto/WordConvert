@@ -26,14 +26,14 @@ class DatabaseManager{
 		$mysqli = new mysqli($this->host, $this->user, $this->password, $this->database);
 		$result = $mysqli->query("SELECT * FROM $this->translation_table ORDER BY $this->translation_before $orderBy");
 		$mysqli->close();
-        return $result;
+        	return $result;
 	}
 	
 	public function selectTranslation($id){
-	    $mysqli = new mysqli($this->host, $this->user, $this->password, $this->database);
+	    	$mysqli = new mysqli($this->host, $this->user, $this->password, $this->database);
 		$result = $mysqli->query("SELECT * FROM $this->translation_table WHERE $this->translation_id = $id");
-        $mysqli->close();
-        return $result;
+        	$mysqli->close();
+        	return $result;
 	}
 	
 	public function insertTranslation($before,$after){
@@ -46,15 +46,15 @@ class DatabaseManager{
 	}
 	
 	public function updateTranslation($id,$before,$after){
-	    $mysqli = new mysqli($this->host, $this->user, $this->password, $this->database);
-	    $sql = "UPDATE translation SET"
+	    	$mysqli = new mysqli($this->host, $this->user, $this->password, $this->database);
+	    	$sql = "UPDATE translation SET"
                 ." word_before = ?,word_after = ?"
                 ." WHERE id = ?";
-        $stmt = $mysqli->prepare($sql);
-        $stmt->bind_param('ssi', $before, $after, $id);
-	    $result = $stmt->execute();;
-	    $mysqli->close();
-	    return $result;
+        	$stmt = $mysqli->prepare($sql);
+        	$stmt->bind_param('ssi', $before, $after, $id);
+	    	$result = $stmt->execute();;
+	    	$mysqli->close();
+	    	return $result;
 	}
 	
 	public function deleteTranslation($id){
@@ -66,14 +66,14 @@ class DatabaseManager{
 	
     public function selectAllRequest(){
         $mysqli = new mysqli($this->host, $this->user, $this->password, $this->database);
-		$result = $mysqli->query("SELECT * FROM $this->request_table ORDER BY $this->request_word ASC");
+	$result = $mysqli->query("SELECT * FROM $this->request_table ORDER BY $this->request_word ASC");
         $mysqli->close();
         return $result;
     }
     
     public function selectRequest($id){
         $mysqli = new mysqli($this->host, $this->user, $this->password, $this->database);
-		$result = $mysqli->query("SELECT * FROM $this->request_table WHERE $this->request_id IN ($id) ORDER BY $this->request_word ASC");
+	$result = $mysqli->query("SELECT * FROM $this->request_table WHERE $this->request_id IN ($id) ORDER BY $this->request_word ASC");
         $mysqli->close();
         return $result;
     }
@@ -101,20 +101,20 @@ class DatabaseManager{
 	
 	public function deleteRequest($id){
         $mysqli = new mysqli($this->host, $this->user, $this->password, $this->database);
-		$result = $mysqli->query("DELETE FROM $this->request_table WHERE $this->request_id IN ($id)");
+	$result = $mysqli->query("DELETE FROM $this->request_table WHERE $this->request_id IN ($id)");
         $mysqli->close();
         return $result;
     }
     
     public function userSearch($userName,$password){
         $mysqli = new mysqli($this->host, $this->user, $this->password, $this->database);
-	    $sql = "SELECT * FROM $this->user_table WHERE $this->user_user_name = ? AND $this->user_password = ?";
+	$sql = "SELECT * FROM $this->user_table WHERE $this->user_user_name = ? AND $this->user_password = ?";
         $stmt = $mysqli->prepare($sql);
         $stmt->bind_param('ss', $userName, $password);
-	    $stmt->execute();
-	    $result = $stmt->fetch();
-	    $mysqli->close();
-	    return $result;
+	$stmt->execute();
+	$result = $stmt->fetch();
+	$mysqli->close();
+	return $result;
     }
 }
 ?>
