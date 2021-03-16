@@ -12,7 +12,7 @@ class Converter{
         $wordBefore = $databaseManager->translation_before; //変換前の単語
         $wordAfter = $databaseManager->translation_after; //変換後の単語
         
-		if ($result = $databaseManager->selectAllTranslation("DESC")) {
+	if ($result = $databaseManager->selectAllTranslation("DESC")) {
             while ($row = $result->fetch_assoc()) {
                 if (ctype_lower($row[$wordBefore])) {
                     $stringAfter = str_ireplace($row[$wordBefore],'<span class="emphasis">'.$row[$wordAfter].'</span>',$stringAfter,$count);
@@ -34,8 +34,8 @@ class Converter{
 
         $convertResultArray = array_reverse($convertResultArray);
 		
-		return array($stringAfter,$convertCount,$convertResultArray);
-	}
+	return array($stringAfter,$convertCount,$convertResultArray);
+    }
 
 }
 ?>
