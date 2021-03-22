@@ -2,9 +2,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <title>リクエスト入力</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </head>
 <body>
+    <?php include "header.html" ?>
     <div class="main">
         <div class="form">
             <form method="post" action="request_form_complete.php">
@@ -18,7 +21,7 @@
                 <p>単語：<input type="text" name="word[]" maxlength="20"></p>
                 <p>単語：<input type="text" name="word[]" maxlength="20"></p>
                 
-                <button type="button" class="button" onclick="history.back()">戻る</button>
+                <button type="button" class="button" onclick="location.href='input.php'">トップページに戻る</button>
                 <input type="submit" value="送信" class="button">
             </form>
         </div>
