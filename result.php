@@ -13,8 +13,12 @@ list($stringAfter,$convertCount,$convertResultArray) = $converter->wordConvert($
     <meta charset="utf-8">
     <title>結果</title>
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </head>
 <body>
+    <?php include "header.html" ?>
     <div class="main">
         <div class=form>
             <img src="image/group_family_asia.png" class="left_icon">
@@ -40,7 +44,7 @@ list($stringAfter,$convertCount,$convertResultArray) = $converter->wordConvert($
             <div class="form-item">■ 変換後</div>
             <?php echo "<p>{$stringAfter}</p>"; ?>
             
-            <button type="button" class="button" onclick="history.back()">もう一度変換する</button>
+            <button type="button" class="button" onclick="location.href='input.php'">もう一度変換する</button>
         </div>
     </div>
 </body>
