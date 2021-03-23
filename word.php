@@ -14,12 +14,10 @@ $databaseManager = new DatabaseManager();
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </head>
 <body>
-    <?php include "header.html" ?>
+<?php include "header.html" ?>
     <div class="main">
         <div class=form>
-            <img src="image/group_family_asia.png" class="left_icon">
-            <span class="form-title">登録済みの単語</span>
-            <img src="image/kaden_PC.png" class="right_icon">
+            <h1>登録済みの単語</h1>
             
             <?php if($result = $databaseManager->selectAllTranslation("ASC")) : ?>
                 <table class="table">
