@@ -21,9 +21,11 @@ list($stringAfter,$convertCount,$convertResultArray) = $converter->wordConvert($
     <?php include "header.html" ?>
     <div class="main">
         <div class=form>
-            <img src="image/group_family_asia.png" class="left_icon">
-            <span class="form-title">変換結果</span>
-            <img src="image/kaden_PC.png" class="right_icon">
+            <div class="mx-auto" style="width:500px;">
+                <img src="image/group_family_asia.png" class="left_icon">
+                <span class="form-title">変換結果</span>
+                <img src="image/kaden_PC.png" class="right_icon">
+            </div>
 
             <div class="form-item">■ 見つかった単語数</div>
             <?php
