@@ -17,9 +17,7 @@ $databaseManager->insertRequest($_POST['word']);
     <?php include "header.html" ?>
     <div class="main">
         <div class=form>
-            <img src="image/group_family_asia.png" class="left_icon">
-            <span class="form-title">送信完了</span>
-            <img src="image/kaden_PC.png" class="right_icon">
+            <h1>送信完了</h1>
 
             <div class="form-item">■ 送信した単語</div>
             <?php
