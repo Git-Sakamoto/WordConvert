@@ -11,9 +11,11 @@
     <div class="main">
         <div class="form">
             <form method="post" action="result.php">
-                <img src="image/group_family_asia.png" class="left_icon">
-                <span class="form-title">IT用語の変換</span>
-                <img src="image/kaden_PC.png" class="right_icon">
+                <div class="mx-auto" style="width:500px;">
+                    <img src="image/group_family_asia.png" class="left_icon">
+                    <span class="form-title">IT用語の変換</span>
+                    <img src="image/kaden_PC.png" class="right_icon">
+                </div>
                 <p>当サイト（開いている、ここ）のデータベース（情報の集合体）に登録されているIT（情報技術）用語を翻訳します</p>
                 
                 <p><a href="request_form_input.php">IT用語の新規追加リクエストがあれば、こちらから</a></p>
