@@ -19,10 +19,13 @@ if($id === 'select'){
 <html>
 <head>
     <meta charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <title>リクエスト削除</title>
 </head>
 <body>
-    <div class="main">
+    <?php include "../header.html" ?>
+    <div class="container">
         <h3>リクエスト削除　確認</h3>
         <?php
         if ($result = $databaseManager->selectRequest($id)) :
@@ -37,12 +40,13 @@ if($id === 'select'){
             $_SESSION['wordArray'] = $wordArray; //完了画面の表示用
         ?>
         <form method="post" action="request_delete_complete.php">
-            <input type="submit" value="削除">
+            <button class="btn btn-outline-primary" type="button" class="button" onclick="location.href='request_list.php'">戻る</button>
+            <input class="btn btn-outline-primary" type="submit" value="削除">
         </form>
         <?php else : ?>
             <p>データを取得できませんでした</p>
+            <button class="btn btn-outline-primary" type="button" class="button" onclick="location.href='request_list.php'">戻る</button>
         <?php endif; ?>
-        <button type="button" class="button" onclick="location.href='request_list.php'">戻る</button>
     </div>
 </body>
 </html>
