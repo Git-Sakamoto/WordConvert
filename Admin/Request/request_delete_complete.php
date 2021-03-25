@@ -8,10 +8,13 @@ $databaseManager = new DatabaseManager();
 <html>
 <head>
     <meta charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <title>リクエスト削除</title>
 </head>
 <body>
-    <div class="main">
+    <?php include "../header.html" ?>
+    <div class="container">
         <h3>リクエスト削除</h3>
         <?php
         $id = $_SESSION['idArray'];
@@ -26,8 +29,8 @@ $databaseManager = new DatabaseManager();
         }
         ?>
 
-        <button type="button" class="button" onclick="location.href='request_list.php'">リクエスト一覧に戻る</button>
-        <button type="button" class="button" onclick="location.href='../top.php'">トップページに戻る</button>
+        <button class="btn btn-outline-primary" type="button" class="button" onclick="location.href='request_list.php'">リクエスト一覧に戻る</button>
+        <button class="btn btn-outline-primary" type="button" class="button" onclick="location.href='../top.php'">トップページに戻る</button>
     </div>
 </body>
 </html>
