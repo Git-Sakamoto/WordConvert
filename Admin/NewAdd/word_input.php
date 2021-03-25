@@ -11,32 +11,34 @@ $databaseManager = new DatabaseManager();
 $id;
 if (isset($_POST['id'])){
     $id = $_POST['id'];
-    //複数選択する場合
     
+    //複数選択する場合
     if($id === 'select'){
         $_SESSION['requestIdArray'] = $_POST['idArray'];
         $id = implode(",", $_POST['idArray']);
     }else{
         $_SESSION['requestIdArray'] = [$id];
     }
-    
 }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <title>入力</title>
 </head>
 <body>
-    <div class="main">
+    <?php include "../header.html" ?>
+    <div class="container">
         <h3>新規登録</h3>
         <form method="post" action="word_input_complete.php">
             <?php if(empty($id)): ?>
                 <?php $_SESSION['formCount'] = 1; ?>
                 <p>変換前：<input type="text" name="before[]" maxlength="20" required></p>
                 <p>変換後：<input type="text" name="after[]" required></p>
-                <input type="submit" value="登録">
+                <input class="btn btn-outline-primary" type="submit" value="登録">
             <?php else : ?>
                 <?php
                 if ($result = $databaseManager->selectRequest($id)) :
@@ -51,13 +53,13 @@ if (isset($_POST['id'])){
             
                     $_SESSION['formCount'] = $formCount;
                 ?>
-                <input type="submit" value="登録">
+                <button class="btn btn-outline-primary" type="button" class="button" onclick="location.href='../Request/request_list.php'">リクエスト一覧に戻る</button>
+                <input class="btn btn-outline-primary" type="submit" value="登録">
                 <?php else : ?>
                     <p>データを取得できませんでした</p>
                 <?php endif; ?>
             <?php endif; ?>
         </form>
-        <button type="button" class="button" onclick="location.href='../top.php'">戻る</button>
     </div>
 </body>
 </html>
